@@ -39,3 +39,4 @@ build/
 tmp/
 *.tmp
 *.bak
+minikube-linux-amd64
