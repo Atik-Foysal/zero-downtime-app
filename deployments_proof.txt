@@ -1,0 +1,4 @@
+NAME                 READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS     IMAGES                              SELECTOR
+blue-deployment      0/0     0            0           23m   zero-app       atik2001/zero-downtime-app:v1       app=zero-app,color=blue
+green-deployment     3/3     3            3           22m   zero-app       atik2001/zero-downtime-app:v2       app=zero-app,color=green
+rolling-deployment   3/3     3            3           20m   rolling-zero   atik2001/zero-downtime-app:latest   app=rolling-zero

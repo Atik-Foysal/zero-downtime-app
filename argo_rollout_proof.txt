@@ -1,0 +1,22 @@
+Name:            canary-rollout
+Namespace:       argo-rollouts
+Status:          [32m✔[0m Healthy
+Strategy:        Canary
+  Step:          2/2
+  SetWeight:     100
+  ActualWeight:  100
+Images:          atik2001/zero-downtime-app:v2 ([32mstable[0m)
+Replicas:
+  Desired:       3
+  Current:       3
+  Updated:       3
+  Ready:         3
+  Available:     3
+
+NAME                                        KIND        STATUS     AGE  INFO
+⟳ canary-rollout                            Rollout     [32m✔[0m Healthy  10m  
+└──# revision:1                                                         
+   └──⧉ [32mcanary-rollout-6fd7f79f7b[0m           ReplicaSet  [32m✔[0m Healthy  10m  [32mstable[0m
+      ├──□ canary-rollout-6fd7f79f7b-p9nfq  Pod         [32m✔[0m Running  10m  ready:1/1
+      ├──□ canary-rollout-6fd7f79f7b-t4hgr  Pod         [32m✔[0m Running  10m  ready:1/1
+      └──□ canary-rollout-6fd7f79f7b-xxh4r  Pod         [32m✔[0m Running  10m  ready:1/1

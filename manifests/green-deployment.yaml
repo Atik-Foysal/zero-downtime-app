@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-deployment
+  labels: { app: zero-app, color: green }
+spec:
+  replicas: 3
+  selector: { matchLabels: { app: zero-app, color: green } }
+  template:
+    metadata: { labels: { app: zero-app, color: green } }
+    spec:
+      containers:
+      - name: zero-app
+        image: atik2001/zero-downtime-app:v2
+        imagePullPolicy: IfNotPresent
+        ports: [{ containerPort: 3000 }]
+        readinessProbe:
+          httpGet: { path: /health, port: 3000 }
+          initialDelaySeconds: 2
+          periodSeconds: 2
+        livenessProbe:
+          httpGet: { path: /health, port: 3000 }
+          initialDelaySeconds: 10
+          periodSeconds: 10

@@ -1,0 +1,4 @@
+NAME             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+canary-service   ClusterIP   10.111.224.16    <none>        80/TCP    15m
+kubernetes       ClusterIP   10.96.0.1        <none>        443/TCP   33d
+zero-service     ClusterIP   10.100.213.233   <none>        80/TCP    23m

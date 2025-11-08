@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: canary-rollout
+  namespace: argo-rollouts  # Use the same namespace as Argo Rollouts
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: canary-app
+  template:
+    metadata:
+      labels:
+        app: canary-app
+    spec:
+      containers:
+      - name: app
+        image: atik2001/zero-downtime-app:v2
+        ports:
+        - containerPort: 3000
+  strategy:
+    canary:
+      steps:
+        - setWeight: 50
+        - pause: {duration: 10s}
+
